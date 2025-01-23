@@ -8,7 +8,12 @@ Project ini merupakan sistem manajemen pengguna berbasis web yang dibangun mengg
 
 ## Instalasi
 
-### 1. Backend (Golang)
+### 1. Clone Repository
+Clone repository dari GitHub menggunakan perintah berikut:
+```bash
+git clone https://github.com/AkbarAj09/Demo_BSS.git
+```
+### 2. Backend (Golang)
 #### a. Pastikan Golang telah terinstal
 - Unduh dan instal Golang dari [situs resmi Go](https://golang.org/dl/).
 - Pastikan versi Go yang terinstal adalah versi terbaru dengan menjalankan perintah:
@@ -32,7 +37,7 @@ Project ini merupakan sistem manajemen pengguna berbasis web yang dibangun mengg
   ```
 - Server akan berjalan di `http://localhost:8080`.
 
-### 2. Frontend (Next.js)
+### 3. Frontend (Next.js)
 #### a. Pastikan Node.js telah terinstal
 - Unduh dan instal Node.js dari [situs resmi Node.js](https://nodejs.org/).
 - Pastikan versi Node.js telah terinstal dengan menjalankan perintah:
