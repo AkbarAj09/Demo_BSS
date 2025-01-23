@@ -77,41 +77,19 @@ Backend memiliki dua endpoint utama:
    - Method: `POST`
    - Deskripsi: Untuk masuk ke sistem.
 
-### Struktur File `main.go`
+### Penjelasan Tentang CORS
+CORS (Cross-Origin Resource Sharing) digunakan untuk mengizinkan permintaan dari domain atau origin yang berbeda. Dalam project ini, CORS diimplementasikan untuk memungkinkan frontend (yang berjalan di `http://localhost:3000`) berkomunikasi dengan backend (yang berjalan di `http://localhost:8080`).
+
+Berikut adalah potongan kode untuk mengaktifkan CORS:
 ```go
-package main
-
-import (
-	"backend/config"
-	"backend/controllers"
-	"log"
-	"net/http"
-
-	"github.com/gorilla/handlers"
-	"github.com/gorilla/mux"
+cors := handlers.CORS(
+    handlers.AllowedOrigins([]string{"http://localhost:3000"}),
+    handlers.AllowedMethods([]string{"GET", "POST", "PUT", "DELETE", "OPTIONS"}),
+    handlers.AllowedHeaders([]string{"Content-Type", "Authorization"}),
 )
-
-func main() {
-	// Inisialisasi database
-	config.ConnectDB()
-
-	r := mux.NewRouter()
-
-	// Endpoint
-	r.HandleFunc("/register", controllers.Register).Methods("POST")
-	r.HandleFunc("/login", controllers.Login).Methods("POST")
-
-	// Tambahkan CORS
-	cors := handlers.CORS(
-		handlers.AllowedOrigins([]string{"http://localhost:3000"}),
-		handlers.AllowedMethods([]string{"GET", "POST", "PUT", "DELETE", "OPTIONS"}),
-		handlers.AllowedHeaders([]string{"Content-Type", "Authorization"}),
-	)
-
-	log.Println("Server running on http://localhost:8080")
-	log.Fatal(http.ListenAndServe(":8080", cors(r)))
-}
+log.Fatal(http.ListenAndServe(":8080", cors(r)))
 ```
+Kode ini memastikan bahwa hanya permintaan dari origin `http://localhost:3000` yang diizinkan, dengan metode HTTP tertentu seperti `GET`, `POST`, `PUT`, dan `DELETE`.
 
 ## Frontend (Next.js)
 ### Struktur Halaman
