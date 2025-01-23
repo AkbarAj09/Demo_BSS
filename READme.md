@@ -111,3 +111,6 @@ Kode ini memastikan bahwa hanya permintaan dari origin `http://localhost:3000` y
 ## Catatan Tambahan
 - Pastikan backend dan frontend berjalan secara bersamaan.
 - Untuk mengubah konfigurasi database, edit file konfigurasi di `backend/config` sesuai kebutuhan.
+
+## License
+Copyright © 2025 Akbar Aj . All rights reserved.
