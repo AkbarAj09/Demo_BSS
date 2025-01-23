@@ -23,7 +23,7 @@ export default function Register() {
         password,
       });
       setMessage("User registered successfully!");
-      setTimeout(() => router.push("auth/login"), 2000); // Redirect ke login setelah 2 detik
+      setTimeout(() => router.push("login"), 1000); // Redirect ke login setelah 2 detik
     } catch (error) {
       setMessage("Failed to register user.");
     }
